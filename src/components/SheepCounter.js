@@ -15,37 +15,38 @@ class SheepCounter extends React.Component {
   }
 
   countSheep = () => {
-    let countNumber = this.state.count;
-    countNumber += 1;
-    this.setState({
-      count: countNumber
-    })
 
-  }
-
-  createArraySheeps = () => {
-    const arraySheeps = [];
-
-    for (let sheep = 0; sheep < this.state.count; sheep++) {
-      arraySheeps.push(
-        <li className="listaOveja" key={sheep}>
-        <img src={SheepPhoto} alt="Oveja" className="ovejita"/>
-        </li>
-      )
+    this.setState((prevState, props) => {
+      return {
+        count: prevState.count + 1
+      }
     }
-    return arraySheeps;
-  }
+  );
+}
 
-  render () {
+createArraySheeps = () => {
+  const arraySheeps = [];
 
-    return (
-      <React.Fragment>
-      <h1 className="numeroGrande">{this.state.count}</h1>
-      <button className="botonGrande" onClick={this.countSheep}>Contar Ovejas</button>
-      <ul className="listadoDeOvejas">{this.createArraySheeps()}</ul>
-      </React.Fragment>
-    );
+  for (let sheep = 0; sheep < this.state.count; sheep++) {
+    arraySheeps.push(
+      <li className="listaOveja" key={sheep}>
+      <img src={SheepPhoto} alt="Oveja" className="ovejita"/>
+      </li>
+    )
   }
+  return arraySheeps;
+}
+
+render () {
+
+  return (
+    <React.Fragment>
+    <h1 className="numeroGrande">{this.state.count}</h1>
+    <button className="botonGrande" onClick={this.countSheep}>Contar Ovejas</button>
+    <ul className="listadoDeOvejas">{this.createArraySheeps()}</ul>
+    </React.Fragment>
+  );
+}
 
 }
 
