@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.listadoDeOvejas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.listaOveja {
+  list-style: none;
+}
+
+.numeroGrande {
+  font-size: 1.4rem;
+}
+
+.botonGrande {
+  font-size: 1.2rem;
+}
+
+.ovejita {
+  width: 10%;
+}
